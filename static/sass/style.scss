@@ -1,0 +1,101 @@
+/**
+ * CSS for Steakhouse Jara
+ */
+
+/* Variables
+=====================================*/
+$color-red: rgb(100, 0, 0);
+$font-color-active: #BA1616;
+$font-family: Helvetica,arial,sans-serif;
+$sidebar-width: 350;
+$z-index: 100000000;
+
+
+/* Mixins
+=====================================*/
+@mixin clearfix{
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+
+/* Styling the components
+=====================================*/
+body{
+  margin:0;padding: 0;
+  font-family: "HelveticaNeueW01-Thin","HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
+}
+
+.sizer{
+  padding-top: .25em;
+  padding: 0 4%;
+  margin: 0 auto;
+  max-width: 100em;
+  padding: 0 7%;
+
+  &:after{
+    @include clearfix;
+  }
+}
+
+
+
+.header{
+  position: fixed;
+  background-color:rgba(100,0,0,0.90);
+  color:white;
+  display: block;
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+}
+.header li{float:left;}
+.welcome{
+  background:white;
+  width:100%;
+  height:700px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+/*background-image: url('https://d2c87l0yth4zbw.cloudfront.net/i/home/intro-flute.jpg');*/
+  background-image: url('/img/perfect_marinade_steak.jpg');
+}
+.content{height:550px;display: block;background: white;}
+.parallax{height:600px;background: red;
+/*
+        background-position: top center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: url('https://dl-web.dropbox.com/get/Jara/cow2.jpg?w=AAAoQ800zBF5yIISGNIILfs0D9RzgK_JK6wMazQRNUc8sg');
+    */
+/*
+background: url(https://dl-web.dropbox.com/get/Jara/cow2.jpg?w=AAAoQ800zBF5yIISGNIILfs0D9RzgK_JK6wMazQRNUc8sg) top center repeat fixed;
+*/
+  background: url(/img/Cow-Wallpaper-cows-26941954-1680-1050.jpg) top center repeat fixed;
+}
+.box{
+  padding-top: 110px;
+  padding-bottom: 250px;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  display: table;
+  vertical-align: middle;
+}
+.centered{
+  background: transparent;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}

@@ -1,0 +1,1 @@
+# Upload the entire static website to s3 using fabric and boto
