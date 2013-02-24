@@ -2,27 +2,23 @@
     // Hello world
     var Jara = {};
 
+    function fixHeight(){
+        $('#welcome, #welcome2').css('height', $(window).height()).removeClass('intro');
+        //console.log("Height = " + $(window).height());
+    }
+
     Jara.init = function(){
-        $(document).ready(function(){
-            $('#welcome, #welcome2').height(
-                $(window).height()
-            );
+        $('#p1').parallax("0%", 0.5);
+        $('#p2').parallax("0%", 0.2);
+        $('#p3').parallax("0%", 0.2);
 
-            $('#p1').parallax("0%", 0.7);
-            $('#p2').parallax("50%", 0.5);
-            $('#p3').parallax("0%", 0);
-        });
-
-        $(window).resize(function(){
-            $( '#welcome' ).height(
-                $(window).height()
-            );
-        });
+        fixHeight();
+        $(window).resize(fixHeight);
     };
 
     Jara.scrollTo = function(anchor){
         var aTag = $("a[name='"+ anchor +"']");
-        $('html,body').animate({scrollTop: aTag.offset().top-100},1500);
+        $('html,body').animate({scrollTop: aTag.offset().top-200},1500);
     };
 
     if(!window.Jara){
