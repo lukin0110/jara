@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # Upload the entire static website to s3 using fabric and boto
 import os
+from datetime import datetime, timedelta
+
+AWS_ACCESS_KEY = ''
+AWS_SECRET_KEY = ''
 
 IMAGES = [
     ('Cow-Wallpaper-cows-26941954-1680-1050.jpg', 'cow1.jpg'),
@@ -42,6 +46,36 @@ def create(size):
     print "Done!"
 
 
-if __name__ == "__main__":
-    create(1920)
+def upload(dir_local): 
+    """
+    Uploading the shebang
+    """
+    from boto.s3.connection import S3Connection
+    from boto.s3.key import Key
 
+    conn = S3Connection(AWS_ACCESS_KEY, AWS_SECRET_KEY)
+    bucket = conn.lookup('steakhousejara.be')
+
+    # Expires in 42 years
+    expires = datetime.utcnow() + timedelta(days=(42 * 365))
+    expires = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+    for path, dir, files in os.walk(dir_local):
+        for file in files:
+            filename = path + "/" + file
+            stripped = filename.replace(dir_local + '/', '/')
+            print " - ", stripped
+            fileHandle = open(filename)
+
+            # Handle ACL, headers: content-type & vary
+            headers = {"Expires": expires}
+            upload = Key(bucket)
+            upload.key = stripped
+            upload.set_contents_from_file(fileHandle, headers, replace=True)
+            upload.set_acl('public-read')
+    print "Upload '" + dir_local + "' done..."
+
+
+if __name__ == "__main__":
+    #create(1920)
+    upload('.')
