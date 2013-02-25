@@ -3,8 +3,20 @@
     var Jara = {};
 
     function fixHeight(){
-        $('#welcome, #welcome2').css('height', $(window).height()).removeClass('intro');
+        $('#welcome').css('height', $(window).height());
+        $('#welcome').css('visibility','visible');
         //console.log("Height = " + $(window).height());
+    }
+
+    //data-dojo-attach-event="" onclick="$.scrollTo( 'a[name=menu]', 800 );"
+    //console.log("Click " + anchor);
+    //offset: Number or hash {left: x, top:y }. This will be added to the final position(can be negative).
+    function initScroll(){
+        $('[data-scroll]').click(function(e){
+            var anchor = $(this).attr('data-scroll');
+            e.preventDefault();
+            $.scrollTo('a[name=' + anchor + ']', 800, {'offset': {'left':0, 'top':-200}});
+        });
     }
 
     Jara.init = function(){
@@ -12,6 +24,7 @@
         $('#p2').parallax("0%", 0.2);
         $('#p3').parallax("0%", 0.2);
 
+        initScroll();
         fixHeight();
         $(window).resize(fixHeight);
     };
@@ -19,6 +32,7 @@
     Jara.scrollTo = function(anchor){
         var aTag = $("a[name='"+ anchor +"']");
         $('html,body').animate({scrollTop: aTag.offset().top-200},1500);
+        return false;
     };
 
     if(!window.Jara){

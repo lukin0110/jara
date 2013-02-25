@@ -5,7 +5,7 @@
 /* Variables
 =====================================*/
 $color-red: rgb(80, 0, 0);
-$font-family: "Jara","HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
+$font-family: "Jara", "HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
 
 
 /* Mixins
@@ -28,25 +28,40 @@ $font-family: "Jara","HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Aria
 =====================================*/
 @font-face {
   font-family: 'Jara';
-  src: url('font/jara3.woff') format('woff');
+  src: url('/css/font/jara3.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 
-
 /* Styling the components
 =====================================*/
+html{
+  height:100%;
+}
+
 body{
   margin:0;
   padding: 0;
   font-family: $font-family;
+  height:100%;
+}
+
+body>.wrap {
+  height: auto;
+  min-height: 100%;
 }
 
 h1{
   color:$color-red;
   font-size:4.5em;
-  text-shadow: 1px 1px rgb(100, 0, 0);
+  font-family:$font-family;
+  line-height: 1.1;
+  font-weight: normal;
+  text-rendering: optimizelegibility;
+  vertical-align: baseline;
+  margin:10px 0 30px 0;
+  //text-shadow: 1px 1px rgb(100, 0, 0);
 
   span{
     display: block;
@@ -70,25 +85,29 @@ em{
 }
 
 .sizer{
-  padding-top: .25em;
-  padding: 0;
   margin: 0 auto;
-  max-width: 100em;
-  width: 100%;
-  height: 100%;
-  display: table;
-  vertical-align: middle;
-
+  max-width: 90em;
+  padding: 0 7%;
   @include clearfix;
 }
 
 .container{
-  z-index: 0;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
+  .sizer{
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+    //width: 100%; //evil width
+    overflow: hidden;
+  }
 }
 
 .header{
   position: fixed;
-  background-color:rgba(100,0,0,0.80);
+  background-color:rgba(60,0,0,0.80);
   color:white;
   display: block;
   width: 100%;
@@ -150,12 +169,16 @@ em{
   -o-background-size: cover;
   background-size: cover;
   background-image: url('/img/1920/welcome2.jpg');
-}
+  visibility:hidden;
 
-.intro{
-  min-height: 700px;
-  height:auto !important;
-  height: 700px;
+  //min-height: 700px;
+  //height:auto !important;
+  //height: 700px;
+  height:100%;
+
+  a{
+    margin-top: 50px;
+  }
 }
 
 .parallax{
@@ -185,13 +208,16 @@ em{
 
 .content{
   height:550px;
-  display: block;
-  background: white;
+}
+
+.content-down{
+  width: 100%;
+  background-color: white;
 }
 
 .box{
-  padding-top: 110px;
-  padding-bottom: 150px;
+  //padding-top: 120px;
+  //padding-bottom: 100px;
   background: transparent;
   width: 100%;
   height: 100%;
@@ -200,6 +226,7 @@ em{
 }
 
 .centered{
+  padding-top: 100px;
   background: transparent;
   height: 100%;
   display: table-cell;
@@ -208,14 +235,14 @@ em{
 }
 
 .whitened{
-  width: 600px;
+  max-width: 600px;
   margin:0 auto 0 auto;
   padding:50px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.8);
 
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 
@@ -237,8 +264,8 @@ em{
 }
 
 
-.page-homepage .section-arrow {
-  background-image: url("../i/home/arrow.png");
+.arrow-down {
+  background-image: url("../img/arrow.png");
   cursor: pointer;
   display: block;
   height: 33px;
