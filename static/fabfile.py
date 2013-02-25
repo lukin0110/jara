@@ -7,29 +7,30 @@ AWS_ACCESS_KEY = ''
 AWS_SECRET_KEY = ''
 
 IMAGES = [
-    ('Cow-Wallpaper-cows-26941954-1680-1050.jpg', 'cow1.jpg'),
-    ('cow-wallpapers_2560x1600.jpg', 'cow2.jpg'),
-    ('7doev.jpg', 'steak1.jpg'),
-    ('mg_4493.jpg', 'steak2.jpg'),
-    ('DSCF0268[1].JPG', 'terrace1.jpg'),
-    ('DSCF0342.JPG', 'terrace2.jpg'),
-    ('DSCF0345.JPG', 'terrace3.jpg'),
-    ('perfect_marinade_steak.jpg', 'welcome.jpg'),
-    ('perfect_marinade_steak2.png', 'welcome2.jpg'),
+    ('Cow-Wallpaper-cows-26941954-1680-1050.jpg', 'cow1.jpg', True),
+    ('cow-wallpapers_2560x1600.jpg', 'cow2.jpg', True),
+    ('7doev.jpg', 'steak1.jpg', True),
+    ('mg_4493.jpg', 'steak2.jpg', True),
+    ('DSCF0268[1].JPG', 'terrace1.jpg', True),
+    ('DSCF0342.JPG', 'terrace2.jpg', True),
+    ('DSCF0345.JPG', 'terrace3.jpg', True),
+    ('perfect_marinade_steak.jpg', 'welcome.jpg', False),
+    ('perfect_marinade_steak2.png', 'welcome2.jpg', False),
 ]
 
 
-def create_img(orig, target, size):
+def create_img(orig, target, size, compress):
     # convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% source.jpg result.jpg
     print " - Converting %s to img/%s/%s" % (orig, size, target)
     cmd1 = 'convert img/orig/%s -resize %sx img/%s/%s' % (orig, size, size, target)
-
-    # Compress jpg
-    # http://stackoverflow.com/questions/7261855/recommendation-for-compress-jpg-files-with-image-magick
-    path = 'img/%s/%s' % (size, target)
-    cmd2 = 'convert -strip -interlace Plane -gaussian-blur 0.05 -quality 70%% %s %s' % (path, path)
     os.system(cmd1)
-    os.system(cmd2)
+
+    if compress:	
+    	# Compress jpg
+    	# http://stackoverflow.com/questions/7261855/recommendation-for-compress-jpg-files-with-image-magick
+    	path = 'img/%s/%s' % (size, target)
+    	cmd2 = 'convert -strip -interlace Plane -gaussian-blur 0.05 -quality 70%% %s %s' % (path, path)
+    	os.system(cmd2)
 
 
 def create(size):
@@ -42,7 +43,7 @@ def create(size):
         pass
 
     for img in IMAGES:
-        create_img(img[0], img[1], size)
+        create_img(img[0], img[1], size, img[2])
     print "Done!"
 
 
@@ -77,5 +78,5 @@ def upload(dir_local):
 
 
 if __name__ == "__main__":
-    #create(1920)
-    upload('.')
+    create(1920)
+    #upload('.')

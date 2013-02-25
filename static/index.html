@@ -4,15 +4,27 @@
     <meta charset="UTF-8" />
     <title>Steakhouse Jara</title>
 
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
+    <meta name="description" content="Steakhouse Jara"/>
+    <meta name="keywords" content="jara, steakhouse, hechtel, eksel, lommel, witblauw"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <meta name="format-detection" content="telephone=no">
+    <!-- fb stuff here -->
 
     <link rel="shortcut icon" href="/img/favicon.ico"/>
     <link href="/css/style.css" rel="stylesheet"/>
-    <!-- Google Analytics -->
+
+    <script>
+        //TODO, create own account
+        var _gaq = _gaq || [];
+        //_gaq.push(['_setAccount', 'UA-3356674-30']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
 </head>
 <body>
     <a name="top"></a>
@@ -24,6 +36,7 @@
             </a>
             <ul>
                 <li><a href="#menu" onclick="Jara.scrollTo('menu');">Menu</a></li>
+                <!--<li><a href="#menu">Menu</a></li>-->
                 <li><a href="#steaks" onclick="Jara.scrollTo('steaks');">Steaks</a></li>
                 <li><a href="#hours" onclick="Jara.scrollTo('hours');">Openingsuren</a></li>
                 <li><a href="#address" onclick="Jara.scrollTo('address');">Adres</a></li>
@@ -104,7 +117,9 @@
         </div>
     </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+    <script src="/js/jquery.js"></script>
+    
     <script src="/js/jquery.parallax-1.1.3.js"></script>
     <script src="/js/jara.js"></script>
     <script>Jara.init();</script>
