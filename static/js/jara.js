@@ -80,5 +80,8 @@
 
 /*
 https://graph.facebook.com/518915304826913/photos
+http://maps.googleapis.com/maps/api/staticmap?center=51.16150,%205.29631&zoom=15&size=600x400&maptype=roadmap&sensor=true&markers=color:red%7Clabel:J%7C51.16290,%205.29631
+http://maps.googleapis.com/maps/api/staticmap?center=51.16150,%205.29631&zoom=15&size=600x400&maptype=roadmap&sensor=true&markers=color:red%7Clabel:J%7C51.16290,%205.29631&format=png
+https://developers.google.com/maps/documentation/staticmaps/
 */
 
