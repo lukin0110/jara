@@ -14,8 +14,9 @@ IMAGES = [
     ('DSCF0268[1].JPG', 'terrace1.jpg', True),
     ('DSCF0342.JPG', 'terrace2.jpg', True),
     ('DSCF0345.JPG', 'terrace3.jpg', True),
-    ('perfect_marinade_steak.jpg', 'welcome.jpg', False),
+    ('perfect_marinade_steak.jpg', 'welcome1.jpg', False),
     ('perfect_marinade_steak2.png', 'welcome2.jpg', False),
+    ('steak.jpeg', 'welcome3.jpg', False),
 ]
 
 
@@ -26,11 +27,11 @@ def create_img(orig, target, size, compress):
     os.system(cmd1)
 
     if compress:	
-    	# Compress jpg
-    	# http://stackoverflow.com/questions/7261855/recommendation-for-compress-jpg-files-with-image-magick
-    	path = 'img/%s/%s' % (size, target)
-    	cmd2 = 'convert -strip -interlace Plane -gaussian-blur 0.05 -quality 70%% %s %s' % (path, path)
-    	os.system(cmd2)
+        # Compress jpg
+        # http://stackoverflow.com/questions/7261855/recommendation-for-compress-jpg-files-with-image-magick
+        path = 'img/%s/%s' % (size, target)
+        cmd2 = 'convert -strip -interlace Plane -gaussian-blur 0.05 -quality 70%% %s %s' % (path, path)
+        os.system(cmd2)
 
 
 def create(size):
@@ -65,18 +66,21 @@ def upload(dir_local):
         for file in files:
             filename = path + "/" + file
             stripped = filename.replace(dir_local + '/', '/')
-            print " - ", stripped
-            fileHandle = open(filename)
 
-            # Handle ACL, headers: content-type & vary
-            headers = {"Expires": expires}
-            upload = Key(bucket)
-            upload.key = stripped
-            upload.set_contents_from_file(fileHandle, headers, replace=True)
-            upload.set_acl('public-read')
+            if '/img/orig' not in stripped:
+                print " - ", stripped
+                fileHandle = open(filename)
+
+                # Handle ACL, headers: content-type & vary
+                headers = {"Expires": expires}
+                upload = Key(bucket)
+                upload.key = stripped
+                upload.set_contents_from_file(fileHandle, headers, replace=True)
+                upload.set_acl('public-read')
+
     print "Upload '" + dir_local + "' done..."
 
 
 if __name__ == "__main__":
-    create(1920)
-    #upload('.')
+    #create(1920)
+    upload('.')

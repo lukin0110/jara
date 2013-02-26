@@ -13,6 +13,11 @@
     //offset: Number or hash {left: x, top:y }. This will be added to the final position(can be negative).
     function initScroll(){
         $('[data-scroll]').click(function(e){
+            $('#header a').removeClass('active');
+            if($(this).parents('#nav').length){
+                $(this).addClass('active');
+            }
+
             var anchor = $(this).attr('data-scroll');
             e.preventDefault();
             $.scrollTo('a[name=' + anchor + ']', 800, {'offset': {'left':0, 'top':-200}});
@@ -27,6 +32,12 @@
         initScroll();
         fixHeight();
         $(window).resize(fixHeight);
+
+
+        var rest = (new Date().getDay() % 2)+1;
+        //var rand = Math.floor((Math.random()*2)+1);
+        //console.log(rest);
+        $('#welcome').addClass('var'+rest);
     };
 
     if(!window.Jara){
@@ -35,7 +46,20 @@
 })();
 
 
+
+
 /*
+ $(window).scroll(function(){
+ var scrollTop = $(window).scrollTop();
+ var windowHeight = $(window).height();
+
+ if(windowHeight - scrollTop < 300){
+ //$('#header').css('background','rgba(60,0,0,1)');
+ } else {
+ //$('#header').css('background','none');
+ }
+ });
+
 
 <!--
         $('#intro').parallax("50%", 0.1);

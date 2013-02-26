@@ -80,10 +80,6 @@ p{
   font-size: 1.25em;
 }
 
-em{
-  text-decoration: italic;
-}
-
 .sizer{
   margin: 0 auto;
   max-width: 90em;
@@ -107,7 +103,7 @@ em{
 
 .header{
   position: fixed;
-  background-color:rgba(60,0,0,0.80);
+  //background-color:rgba(60,0,0,0.20);
   color:white;
   display: block;
   width: 100%;
@@ -119,6 +115,8 @@ em{
     display: block;
     float:left;
     width: 200px;
+    //background-color: $color-red;
+    padding:0 25px 0 25px;
   }
 
   ul{
@@ -138,21 +136,27 @@ em{
       color: white;
       display: inline-block;
       height:20px;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
       font-family: "HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
       padding:25px;
       text-decoration: none;
+      text-shadow:1px 1px 5px #500000;
+    }
+  }
 
-      &:hover{
-        color:$color-red;
-        background-color: white;
-      }
+  a{
+    &.active,
+    &:hover{
+      color:white;
+      background-color: $color-red;
+      text-shadow: none;
+    }
 
-      &:active{
-        color:white;
-        background-color: $color-red;
-      }
+    &:active{
+      color:$color-red;
+      background-color: white;
+      text-shadow: none;
     }
   }
 }
@@ -175,6 +179,9 @@ em{
   //height:auto !important;
   //height: 700px;
   height:100%;
+
+  &.var1{background-image: url('/img/1920/welcome2.jpg');}
+  &.var2{background-image: url('/img/1920/welcome3.jpg');}
 
   a{
     margin-top: 50px;
@@ -226,7 +233,7 @@ em{
 }
 
 .centered{
-  padding-top: 100px;
+  padding-top: 60px;
   background: transparent;
   height: 100%;
   display: table-cell;
@@ -238,11 +245,11 @@ em{
   max-width: 600px;
   margin:0 auto 0 auto;
   padding:50px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
 
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 
