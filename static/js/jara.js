@@ -29,12 +29,6 @@
         $(window).resize(fixHeight);
     };
 
-    Jara.scrollTo = function(anchor){
-        var aTag = $("a[name='"+ anchor +"']");
-        $('html,body').animate({scrollTop: aTag.offset().top-200},1500);
-        return false;
-    };
-
     if(!window.Jara){
         window.Jara = Jara;
     }
