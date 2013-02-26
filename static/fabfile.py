@@ -2,9 +2,7 @@
 # Upload the entire static website to s3 using fabric and boto
 import os
 from datetime import datetime, timedelta
-
-AWS_ACCESS_KEY = ''
-AWS_SECRET_KEY = ''
+from ConfigParser import SafeConfigParser, ConfigParser, DEFAULTSECT
 
 IMAGES = [
     ('Cow-Wallpaper-cows-26941954-1680-1050.jpg', 'cow1.jpg', True),
@@ -54,8 +52,13 @@ def upload(dir_local):
     """
     from boto.s3.connection import S3Connection
     from boto.s3.key import Key
+    
+    parser = SafeConfigParser()
+    parser.read(['.aws'])
+    access_key = parser.get('main', 'access_key')
+    secret_key = parser.get('main', 'secret_key')
 
-    conn = S3Connection(AWS_ACCESS_KEY, AWS_SECRET_KEY)
+    conn = S3Connection(access_key, secret_key)
     bucket = conn.lookup('steakhousejara.be')
 
     # Expires in 42 years
@@ -67,12 +70,13 @@ def upload(dir_local):
             filename = path + "/" + file
             stripped = filename.replace(dir_local + '/', '/')
 
-            if '/img/orig' not in stripped:
+            if '/img/orig' not in stripped and '.aws' not in stripped and '.sass' not in stripped:
                 print " - ", stripped
                 fileHandle = open(filename)
 
                 # Handle ACL, headers: content-type & vary
-                headers = {"Expires": expires}
+                #headers = {"Expires": expires}
+                headers = {}
                 upload = Key(bucket)
                 upload.key = stripped
                 upload.set_contents_from_file(fileHandle, headers, replace=True)
