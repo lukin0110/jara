@@ -186,9 +186,7 @@ p{
   }
 }
 
-.parallax{
-  height:600px;
-  background: red;
+
   /*
           background-position: top center;
       background-repeat: no-repeat;
@@ -201,13 +199,17 @@ p{
   /*
   background: url(https://dl-web.dropbox.com/get/Jara/cow2.jpg?w=AAAoQ800zBF5yIISGNIILfs0D9RzgK_JK6wMazQRNUc8sg) top center repeat fixed;
   */
+.parallax{
+  height:600px;
+  background: red;
   background-color: white;
   background-repeat: no-repeat;
   background-position: top center;
   background-size: fixed;
 
-  &.p1{background:white url(/img/1920/welcome3.jpg) top center no-repeat fixed;}
-  &.p2{background:white url(/img/1920/cow2.jpg) top center no-repeat fixed;}
+
+  &.p2{background:white url(/img/1920/welcome3.jpg) top center no-repeat fixed;}
+  &.p1{background:white url(/img/1920/cow2.jpg) top center no-repeat fixed;}
   &.p3{background:white url(/img/1920/terrace1.jpg) top center no-repeat fixed;}
 }
 
