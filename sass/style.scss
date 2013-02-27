@@ -141,7 +141,7 @@ p{
       font-family: "HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
       padding:25px;
       text-decoration: none;
-      text-shadow:1px 1px 5px #500000;
+      text-shadow:1px 1px 3px #400000;
     }
   }
 
@@ -166,7 +166,8 @@ p{
   //z-index:-2;
   background:white;
   width:100%;
-  background-position: top center;
+  //background-position: top center;
+  background-position:bottom center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -179,9 +180,6 @@ p{
   //height:auto !important;
   //height: 700px;
   height:100%;
-
-  &.var1{background-image: url('/img/1920/welcome2.jpg');}
-  &.var2{background-image: url('/img/1920/welcome3.jpg');}
 
   a{
     margin-top: 50px;
@@ -208,7 +206,7 @@ p{
   background-position: top center;
   background-size: fixed;
 
-  &.p1{background:white url(/img/1920/steak2.jpg) top center no-repeat fixed;}
+  &.p1{background:white url(/img/1920/welcome3.jpg) top center no-repeat fixed;}
   &.p2{background:white url(/img/1920/cow2.jpg) top center no-repeat fixed;}
   &.p3{background:white url(/img/1920/terrace1.jpg) top center no-repeat fixed;}
 }
@@ -281,3 +279,8 @@ p{
   -webkit-tap-highlight-color: transparent;
   width: 72px;
 }
+
+.var1{background-image: url('/img/1920/welcome1.jpg');}
+.var2{background-image: url('/img/1920/welcome2.jpg');}
+.var3{background-image: url('/img/1920/welcome1.jpg');}
+.var4{background-image: url('/img/1920/welcome4.jpg');}

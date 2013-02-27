@@ -25,7 +25,7 @@
     }
 
     Jara.init = function(){
-        $('#p1').parallax("0%", 0.5);
+        $('#p1').parallax("0%", 0.3);
         $('#p2').parallax("0%", 0.2);
         $('#p3').parallax("0%", 0.2);
 
@@ -35,7 +35,7 @@
 
 
         var rest = (new Date().getDay() % 2)+1;
-        //var rand = Math.floor((Math.random()*2)+1);
+        var rest = Math.floor((Math.random()*4)+1);
         //console.log(rest);
         $('#welcome').addClass('var'+rest);
     };

@@ -7,18 +7,24 @@ from ConfigParser import SafeConfigParser, ConfigParser, DEFAULTSECT
 IMAGES = [
     ('Cow-Wallpaper-cows-26941954-1680-1050.jpg', 'cow1.jpg', True),
     ('cow-wallpapers_2560x1600.jpg', 'cow2.jpg', True),
+    ('cow.jpg', 'cow3.jpg', True),
     ('7doev.jpg', 'steak1.jpg', True),
-    ('mg_4493.jpg', 'steak2.jpg', True),
+    ('steak.jpeg', 'steak2.jpg', True),
     ('DSCF0268[1].JPG', 'terrace1.jpg', True),
     ('DSCF0342.JPG', 'terrace2.jpg', True),
     ('DSCF0345.JPG', 'terrace3.jpg', True),
-    ('perfect_marinade_steak.jpg', 'welcome1.jpg', False),
-    ('perfect_marinade_steak2.png', 'welcome2.jpg', False),
-    ('steak.jpeg', 'welcome3.jpg', False),
+    ('perfect_marinade_steak.jpg', 'welcome2.jpg', True),
+
+    ('perfect_marinade_steak2.png', 'welcome1.jpg', False),
+    ('mg_4493.jpg', 'welcome2.jpg', False),
+    ('Strip_House_Signature_Steak.jpg', 'welcome3.jpg', False),
+    ('steak-1.jpg', 'welcome4.jpg', False),
 ]
 
 EXCLUDES = [
     '/img/orig',
+    '/img/1366',
+    '/img/1024',
     '.aws',
     '.sass',
     '.git',
