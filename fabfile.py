@@ -97,7 +97,7 @@ def upload(dir_local):
 
                 # Handle ACL, headers: content-type & vary
                 if '/img' in stripped:
-                    headers["Expires"] = expires}
+                    headers["Expires"] = expires
 
                 upload = Key(bucket)
                 upload.key = stripped
