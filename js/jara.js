@@ -1,4 +1,4 @@
-(function(){
+;(function($){
     // Hello world
     var Jara = {}, Photos={};
     var PHOTOS = 'https://graph.facebook.com/518915304826913/photos';
@@ -111,7 +111,7 @@
     if(!window.Jara){
         window.Jara = Jara;
     }
-})();
+})(jQuery);
 
 
 

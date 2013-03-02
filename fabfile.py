@@ -60,6 +60,27 @@ def create(size):
     print "Done!"
 
 
+def uglify():
+    SCRIPTS = [
+        ('js/jquery.scrollTo-1.4.3.1-min.js', False),
+        ('js/jquery.parallax-1.1.3.js', True),
+        ('js/slides.min.jquery-1.2.0.js', False),
+        ('js/jara.js', True)
+    ]
+
+    result = '.build/jara.min.js'
+    if not os.path.exists('.build/js'):
+        os.makedirs('.build/js')
+
+    for s in SCRIPTS:
+        print "Processing: ", s[0]
+        os.system('uglifyjs -nc %(scripts)s > .build/%(scripts)s-min' % {'scripts':s[0]})
+        os.system('cat .build/%s-min >> %s && echo "" >> %s' % (s[0], result, result))
+
+    os.system('cp %s js/jara.min.js' % result)
+    os.system('rm -Rf .build')
+
+
 def upload(dir_local): 
     """
     Uploading the shebang
@@ -109,4 +130,5 @@ def upload(dir_local):
 
 if __name__ == "__main__":
     #create(1920)
-    upload('.')
+    #upload('.')
+    uglify()
