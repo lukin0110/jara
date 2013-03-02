@@ -130,5 +130,5 @@ def upload(dir_local):
 
 if __name__ == "__main__":
     #create(1920)
-    #upload('.')
-    uglify()
+    upload('.')
+    #uglify()
