@@ -109,7 +109,7 @@ p{
   width: 100%;
   height: 70px;
   overflow: hidden;
-  z-index:5;
+  z-index:500;
 
   .logo{
     display: block;
@@ -214,7 +214,17 @@ p{
 }
 
 .content{
-  height:550px;
+  //height:550px;
+  height:auto;
+  padding:40px 0 60px 0;
+
+  &.menu{height:550px;}
+  &.steaks{
+    img{float:left;margin-right:30px;width:30%;}
+    .textblock{float:left;display:block;width:60%;}
+  }
+  &.photos{height:auto;}
+  &.contact{}
 }
 
 .content-down{
@@ -281,6 +291,59 @@ p{
   -webkit-tap-highlight-color: transparent;
   width: 72px;
 }
+
+.slides{
+  position: relative;
+
+  .slides_container {
+      width:960px;
+      height:637px;
+      margin:0 auto 0 auto;
+      box-shadow: 0px 0px 20px #bbb;
+      margin-bottom: 30px;
+
+      div {
+        //width:570px;
+        //height:270px;
+        //width:720px;
+        //height:478px;
+        width:960px;
+        height:637px;
+        display:block;
+    }
+  }
+
+  .control{
+    position: absolute;
+    top: 45%;
+    
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    font-size: 60px;
+    font-weight: 100;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+    background: #ccc;
+    border: 3px solid #eee;
+    -webkit-border-radius: 23px;
+    -moz-border-radius: 23px;
+    border-radius: 23px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    z-index: 6;
+    text-decoration: none;
+
+    &:hover{background-color: $color-red;opacity: 1;border-color:$color-red;}
+    &.prev{left: 25px;}
+    &.next{right: 25px;}
+  }
+}
+
+
+
 
 .var1{background-image: url('/img/1920/welcome1.jpg');}
 .var2{background-image: url('/img/1920/welcome2.jpg');}
