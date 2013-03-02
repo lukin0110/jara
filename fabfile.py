@@ -93,10 +93,12 @@ def upload(dir_local):
             if not is_exclude(stripped): 
                 print " - ", stripped
                 fileHandle = open(filename)
+                headers = {}
 
                 # Handle ACL, headers: content-type & vary
-                #headers = {"Expires": expires}
-                headers = {}
+                if '/img' in stripped:
+                    headers["Expires"] = expires}
+
                 upload = Key(bucket)
                 upload.key = stripped
                 upload.set_contents_from_file(fileHandle, headers, replace=True)
