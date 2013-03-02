@@ -9,6 +9,21 @@
         //console.log("Height = " + $(window).height());
     }
 
+    function getTop(anchor){
+        var height1 = $(window).height();
+        var height2 = $('#' + anchor).height();
+
+        if(height2>height1 || 'photos' === anchor){
+            return 70;
+        } else {
+            var t = Math.floor((height1 - height2 -70) / 2);
+            if(t<70){
+                return 70;
+            }
+            return t;
+        } 
+    }
+
     //data-dojo-attach-event="" onclick="$.scrollTo( 'a[name=menu]', 800 );"
     //console.log("Click " + anchor);
     //offset: Number or hash {left: x, top:y }. This will be added to the final position(can be negative).
@@ -21,12 +36,7 @@
 
             var anchor = $(this).attr('data-scroll');
             e.preventDefault();
-            
-            var top = -200;
-            if('photos' === anchor){
-                top = -70;
-            }
-            $.scrollTo('a[name=' + anchor + ']', 800, {'offset': {'left':0, 'top':top}});
+            $.scrollTo('#' + anchor, 800, {'offset': {'left':0, 'top':-getTop(anchor)}});
         });
     }
 
