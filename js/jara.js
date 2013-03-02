@@ -11,12 +11,14 @@
 
     function getTop(anchor){
         var height1 = $(window).height();
-        var height2 = $('#' + anchor).height();
+        var height2 = $('#' + anchor).outerHeight();
 
         if(height2>height1 || 'photos' === anchor){
             return 70;
         } else {
-            var t = Math.floor((height1 - height2 -70) / 2);
+            var t = Math.floor((height1 - height2 - 33) / 2);
+            //console.log("heights " + t + ", " + height1 + ", " + height2);
+
             if(t<70){
                 return 70;
             }
@@ -28,16 +30,15 @@
     //console.log("Click " + anchor);
     //offset: Number or hash {left: x, top:y }. This will be added to the final position(can be negative).
     function initScroll(){
-        $('[data-scroll]').click(function(e){
-            $('#header a').removeClass('active');
-            if($(this).parents('#nav').length){
-                $(this).addClass('active');
-            }
-
+        var callback = function(e){
             var anchor = $(this).attr('data-scroll');
+            $('#header a').removeClass('active');
+            $('#header a[data-scroll=' + anchor + ']').addClass('active');
             e.preventDefault();
             $.scrollTo('#' + anchor, 800, {'offset': {'left':0, 'top':-getTop(anchor)}});
-        });
+        };
+
+        $('[data-scroll]').click(callback);
     }
 
     Photos.init = function(){
