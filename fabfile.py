@@ -136,7 +136,7 @@ def upload(dir_local):
 
 
 def diff():
-    from git import *
+    from git import Repo
     repo = Repo('.')
     h = repo.head.commit
     loop = h.diff('HEAD~1')
