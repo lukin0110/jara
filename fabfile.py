@@ -106,12 +106,19 @@ def upload(dir_local):
                 return True
         return False
 
+    def is_in_diff(stripped):
+        files = diff()
+        for f in files:
+            if f in stripped:
+                return True
+        return False
+
     for path, dir, files in os.walk(dir_local):
         for file in files:
             filename = path + "/" + file
             stripped = filename.replace(dir_local + '/', '/')
 
-            if not is_exclude(stripped): 
+            if not is_exclude(stripped) and is_in_diff(stripped): 
                 print " - ", stripped
                 fileHandle = open(filename)
                 headers = {}
@@ -127,6 +134,18 @@ def upload(dir_local):
 
     print "Upload '" + dir_local + "' done..."
 
+
+def diff():
+    from git import *
+    repo = Repo('.')
+    h = repo.head.commit
+    loop = h.diff('HEAD~1')
+    files = []
+
+    for l in loop:
+        files.append(l.a_blob.path)
+        #pprint(help(l))
+    return files
 
 if __name__ == "__main__":
     #create(1920)
