@@ -108,6 +108,13 @@
         Photos.init();
     };
 
+    Jara.moreSauce = function(a, event){
+        $('#moresauce').fadeIn();
+        $(a).remove();
+        event.preventDefault();
+        return false;
+    };
+
     if(!window.Jara){
         window.Jara = Jara;
     }

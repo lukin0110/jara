@@ -6,6 +6,7 @@
 =====================================*/
 $color-red: rgb(80, 0, 0);
 $font-family: "Jara", "HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
+//$font-family: Arial,sans-serif;
 
 
 /* Mixins
@@ -33,9 +34,16 @@ $font-family: "Jara", "HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Ari
 =====================================*/
 @font-face {
   font-family: 'Jara';
-  src: url('/css/font/jara3.woff') format('woff');
+  src: url('/css/font/jara2.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jara';
+  src: url('/css/font/jara1.woff') format('woff');
+  font-weight: bold;
+  font-style: bold;
 }
 
 
@@ -50,6 +58,7 @@ body{
   padding: 0;
   font-family: $font-family;
   height:100%;
+  color:#555;
 }
 
 body>.wrap {
@@ -72,7 +81,7 @@ h1{
     display: block;
     font-size: 0.3em;
     text-shadow: none;
-    color:#333;
+    color:#555;
     font-weight: normal;
   }
 }
@@ -89,6 +98,17 @@ h2{
 
 p{
   font-size: 1.25em;
+  //font-size: 1em;
+}
+
+ul{
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+
+li{
+  padding-bottom:5px;
 }
 
 .sizer{
@@ -133,10 +153,7 @@ p{
 
   ul{
     display: block;
-    list-style-type: none;
     text-align: right;
-    margin:0;
-    padding:0;
   }
 
   li{
@@ -157,26 +174,24 @@ p{
 
       &.active,
       &:hover{
-        color:$color-red;
-        background-color: white;
-        text-shadow:1px 1px 1px #fff;
-        text-decoration: none;
-      }
-
-      &:active{
         color:white;
         background-color: $color-red;
         text-shadow:1px 1px 1px #400000;
         text-decoration: none;
       }
+
+      &:active{
+        color:$color-red;
+        background-color: white;
+        text-shadow:1px 1px 1px #fff;
+        text-decoration: none;
+      }
     }
   }
 
-  a{
-    &:hover{
-        background-color: $color-red;
-        text-decoration: none;
-    }
+  .logo{
+    &:hover{background-color: $color-red;}
+    &:active{background-color: white;}
   }
 }
 
@@ -247,7 +262,24 @@ p{
   height:auto;
   padding:40px 0 60px 0;
 
-  &.menu{height:550px;}
+  &.menu{
+    height:auto;
+    ul{
+      margin-bottom:40px;
+      &.steak1{margin-bottom:20px;}
+    }
+    li{
+      text-align: center;font-size: 1.25em;
+      span{display: block;color:#888;font-size: .8em}
+    }
+    h2{text-align:center;}
+    h3{text-align:center;}
+    .col{float:left;width:33%;}
+    p{
+      font-size: 1em;font-weight: normal;text-align: center;
+      &.steak1{margin-bottom: 40px;}
+    }
+  }
   &.steaks{
     img{float:left;margin-right:50px;width:30%;}
     .textblock{float:left;display:block;width:60%;}

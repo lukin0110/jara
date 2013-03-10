@@ -118,7 +118,8 @@ def upload(dir_local):
             filename = path + "/" + file
             stripped = filename.replace(dir_local + '/', '/')
 
-            if not is_exclude(stripped) and is_in_diff(stripped): 
+            #if not is_exclude(stripped) and is_in_diff(stripped): 
+            if not is_exclude(stripped): 
                 print " - ", stripped
                 fileHandle = open(filename)
                 headers = {}
@@ -139,7 +140,7 @@ def diff():
     from git import Repo
     repo = Repo('.')
     h = repo.head.commit
-    loop = h.diff('HEAD~1')
+    loop = h.diff('HEAD~3')
     files = []
 
     for l in loop:
@@ -147,7 +148,20 @@ def diff():
         #pprint(help(l))
     return files
 
+def to_html_hex(msg):
+    """
+    http://stackoverflow.com/questions/12625627/python3-convert-unicode-string-to-int-representation
+    """
+    buf = []
+    for c in msg:
+        buf.append('&#')
+        buf.append(str(ord(c)))
+        buf.append(';')
+    return ''.join(buf)
+
 if __name__ == "__main__":
     #create(1920)
     upload('.')
     #uglify()
+    #print to_html_hex('valentin@steakhousejara.be')
+    #print to_html_hex('mailto:')
