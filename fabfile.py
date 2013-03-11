@@ -19,6 +19,7 @@ IMAGES = [
     ('mg_4493.jpg', 'welcome2.jpg', False),
     ('Strip_House_Signature_Steak.jpg', 'welcome3.jpg', False),
     ('steak-1.jpg', 'welcome4.jpg', False),
+    ('Jara0062.JPG', 'salad.jpg', True)
 ]
 
 EXCLUDES = [

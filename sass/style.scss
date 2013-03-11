@@ -79,9 +79,8 @@ h1{
 
   span{
     display: block;
-    font-size: 0.3em;
+    font-size: 0.25em;
     text-shadow: none;
-    color:#555;
     font-weight: normal;
   }
 }
@@ -109,6 +108,10 @@ ul{
 
 li{
   padding-bottom:5px;
+}
+
+span{
+  color:#888;
 }
 
 .sizer{
@@ -253,7 +256,8 @@ li{
 
 
   &.p2{background:white url(/img/1920/welcome3.jpg) top center no-repeat fixed;}
-  &.p1{background:white url(/img/1920/cow2.jpg) top center no-repeat fixed;}
+  //&.p1{background:white url(/img/1920/cow2.jpg) top center no-repeat fixed;}
+  &.p1{background:white url(/img/1920/salad.jpg) top center no-repeat fixed;}
   &.p3{background:white url(/img/1920/terrace1.jpg) top center no-repeat fixed;}
 }
 
@@ -264,17 +268,22 @@ li{
 
   &.menu{
     height:auto;
+    padding-bottom: 0px;
     ul{
       margin-bottom:40px;
       &.steak1{margin-bottom:20px;}
     }
     li{
       text-align: center;font-size: 1.25em;
-      span{display: block;color:#888;font-size: .8em}
+      span{display: block;font-size: .8em}
     }
     h2{text-align:center;}
     h3{text-align:center;}
-    .col{float:left;width:33%;}
+    .col{
+      float:left;width:33%;
+      &.choice{strong{display: block;padding:15px 0 15px 0;}} 
+      hr{margin: 0 20% 0 20%;color:$color-red;background-color: $color-red;border:0;height:1px;}
+    }
     p{
       font-size: 1em;font-weight: normal;text-align: center;
       &.steak1{margin-bottom: 40px;}
@@ -394,7 +403,7 @@ li{
     color: white;
     text-align: center;
     background: #ccc;
-    border: 3px solid #eee;
+    border: 3px solid #ccc;
     -webkit-border-radius: 23px;
     -moz-border-radius: 23px;
     border-radius: 23px;

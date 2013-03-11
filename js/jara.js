@@ -109,8 +109,13 @@
     };
 
     Jara.moreSauce = function(a, event){
-        $('#moresauce').fadeIn();
-        $(a).remove();
+        if($(a).attr('shown') === 'true'){
+            $('#moresauce').fadeOut();
+            $(a).attr('shown', false);      
+        } else {
+            $('#moresauce').fadeIn();
+            $(a).attr('shown', true);
+        }
         event.preventDefault();
         return false;
     };
