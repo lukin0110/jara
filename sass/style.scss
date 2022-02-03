@@ -280,9 +280,19 @@ span{
     h2{text-align:center;}
     h3{text-align:center;}
     .col{
-      float:left;width:33%;
-      &.choice{strong{display: block;padding:15px 0 15px 0;}} 
-      hr{margin: 0 20% 0 20%;color:$color-red;background-color: $color-red;border:0;height:1px;}
+      float:left;width:50%;
+      &.choice {
+        strong {
+          display: block;padding:15px 0 15px 0;
+        }
+      }
+      hr {
+        margin: 0 20% 0 20%;
+        color:$color-red;
+        background-color: $color-red;
+        border:0;
+        height:1px;
+      }
     }
     p{
       font-size: 1em;font-weight: normal;text-align: center;

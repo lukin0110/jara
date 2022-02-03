@@ -8,6 +8,13 @@ Some ImageMagick tricks:
 * scaling: convert welcome.jpg -resize 1920x  welcome.jpg
 * compressing:
 
+Development
+===========
+```
+npm install -g sass
+sass sass/style.scss css/style.css
+python3 -m http.server
+```
 
 Setup aws
 =========
